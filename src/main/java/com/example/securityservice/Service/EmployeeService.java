@@ -8,7 +8,7 @@ import java.util.List;
 public interface EmployeeService {
     Employee saveEmployee(Employee employee);
     Role saveRole(Role role);
-    void addRoleToUser(String employeeName, String roleName);
+    void addRoleToEmployee(String employeeName, String roleName);
     Employee getEmployee(String employeeName);
     List<Employee> getEmployees();
 }

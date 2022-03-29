@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void addRoleToUser(String employeeName, String roleName) {
+    public void addRoleToEmployee(String employeeName, String roleName) {
         Employee employee = employeeRepository.findEmployeesByEmployeeName(employeeName);
         Role role = roleRepository.findRoleByRoleName(roleName);
         employee.getRoles().add(role);
