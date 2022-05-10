@@ -41,14 +41,14 @@ public class EmployeeResource {
 
     @PostMapping("/employee/save")
     public ResponseEntity<Employee>saveEmployee(@RequestBody Employee employee){
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/save/employee").toUriString());
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/employee/save").toUriString());
         return ResponseEntity.created(uri).body(employeeService.saveEmployee(employee));
     }
 
     @PostMapping("/role/save")
     public ResponseEntity<Role>saveRole(@RequestBody Role role){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/save/role").toUriString());
-        return ResponseEntity.created(null).body(employeeService.saveRole(role));
+        return ResponseEntity.created(uri).body(employeeService.saveRole(role));
     }
 
     @PostMapping("/role/addToEmployee")
@@ -57,7 +57,7 @@ public class EmployeeResource {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/token/refresh")
+    @GetMapping("/auth/refresh/token")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
